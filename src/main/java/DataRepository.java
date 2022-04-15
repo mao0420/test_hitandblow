@@ -13,7 +13,7 @@ public class DataRepository {
     private final JdbcTemplate jdbcTemplate;
 
     public List<DataDto> getAll() {
-        String sql = "select ID,USER_NAME,TRY_TIMES,START_DATE,END_DATE from data";
+        String sql = "select ID,USER_NAME,TRY_TIMES,START_DATE,END_DATE from record_data";
         List<Map<String, Object>> dataList = jdbcTemplate.queryForList(sql);
         List<DataDto> list = new ArrayList<>();
         for (Map<String, Object> data : dataList) {

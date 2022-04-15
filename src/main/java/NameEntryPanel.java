@@ -21,12 +21,12 @@ public class NameEntryPanel extends Container {
 
         labelNameEntry = new JLabel(Constants.DISPLAY_TEXT_NAME_ENTRY);
         textFieldNameInput = new JTextField();
-        buttonConfirm = new JButton(Constants.DISPLAY_BUTTON_CONFIRM);
         buttonReset = new JButton(Constants.DISPLAY_BUTTON_RESET);
+        buttonConfirm = new JButton(Constants.DISPLAY_BUTTON_CONFIRM);
         buttonBackToTitle = new JButton(Constants.DISPLAY_BUTTON_BACK_TO_TITLE);
 
-        buttonConfirm.setName(Constants.DISPLAY_BUTTON_CONFIRM);
-        buttonReset.setName(Constants.DISPLAY_BUTTON_RESET);
+        buttonReset.setName(Constants.DISPLAY_BUTTON_NAME_ENTRY_RESET);
+        buttonConfirm.setName(Constants.DISPLAY_BUTTON_NAME_ENTRY_CONFIRM);
         buttonBackToTitle.setName(Constants.DISPLAY_BUTTON_BACK_TO_TITLE);
 
         //フォント設定メソッドへ
@@ -52,8 +52,8 @@ public class NameEntryPanel extends Container {
      */
     private void setFontInNameEntryPanel() {
         labelNameEntry.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_TEXT_NAME_ENTRY));
-        buttonConfirm.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_SCREEN_TRANSITION_BUTTON));
         buttonReset.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_SCREEN_TRANSITION_BUTTON));
+        buttonConfirm.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_SCREEN_TRANSITION_BUTTON));
         buttonBackToTitle.setFont(new Font(Constants.FONT_MS_GOTHIC, Font.BOLD, Constants.SIZE_SCREEN_TRANSITION_BUTTON));
     }
 
@@ -74,8 +74,8 @@ public class NameEntryPanel extends Container {
         labelNameEntry.setHorizontalAlignment(JLabel.CENTER);
         textFieldNameInput.setAlignmentX(CENTER_ALIGNMENT);
         textFieldNameInput.setHorizontalAlignment(JLabel.CENTER);
-        buttonConfirm.setAlignmentX(Component.CENTER_ALIGNMENT);
         buttonReset.setAlignmentX(Component.CENTER_ALIGNMENT);
+        buttonConfirm.setAlignmentX(Component.CENTER_ALIGNMENT);
         buttonBackToTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
     }
 
@@ -84,10 +84,10 @@ public class NameEntryPanel extends Container {
      * 名前変更パネル内で使用されるボタンの押下時の判定を設定する。
      */
     private void setActionInNameEntryPanel(ActionListener actionListener) {
-//        buttonConfirm.addActionListener(actionListener);
-//        buttonConfirm.setActionCommand(Constants.CARD_TITLE_SCREEN);
-//        buttonReset.addActionListener(actionListener);
-//        buttonReset.setActionCommand(Constants.CARD_TITLE_SCREEN);
+        buttonReset.addActionListener(actionListener);
+        buttonReset.setActionCommand(Constants.DISPLAY_BUTTON_NAME_ENTRY_RESET);
+        buttonConfirm.addActionListener(actionListener);
+        buttonConfirm.setActionCommand(Constants.DISPLAY_BUTTON_NAME_ENTRY_CONFIRM);
         buttonBackToTitle.addActionListener(actionListener);
         buttonBackToTitle.setActionCommand(Constants.CARD_TITLE_SCREEN);
     }

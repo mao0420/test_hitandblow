@@ -152,7 +152,9 @@ public class Contents extends JFrame implements ActionListener {
 //                dataList.add(data);
 //            }
             layout.show(cardPanel, Constants.CARD_RANKING);
-            MainController controller = new MainController(null);
+//            MainController controller = new MainController(new DataRepository(new JdbcTemplate()));
+            MainController controller = new MainController();
+
             List<DataDto> setRankingList = controller.write1();
             RankingPanel.labelRanking.setText(String.valueOf(setRankingList));
         } else if (cmd.matches("^Card.*")) {
@@ -174,6 +176,12 @@ public class Contents extends JFrame implements ActionListener {
         } else if (Constants.DISPLAY_BUTTON_CONFIRM.equals(cmd)) {
             //ゲーム画面にて確定ボタンクリック時
             tryTimes = judge(tryTimes, answer);
+        } else if (Constants.DISPLAY_BUTTON_NAME_ENTRY_RESET.equals(cmd)) {
+            //名前変更画面にてリセットボタンクリック時
+            NameEntryPanel.textFieldNameInput.setText("");
+        } else if (Constants.DISPLAY_BUTTON_NAME_ENTRY_CONFIRM.equals(cmd)) {
+            //名前変更画面にて確定ボタンクリック時
+            nameEntryJudge();
         } else if (Constants.BUTTON_GAME_END.equals(cmd)) {
             //タイトル画面にてゲーム終了ボタンクリック時
             Component c = (Component) e.getSource();
@@ -313,6 +321,31 @@ public class Contents extends JFrame implements ActionListener {
         hitBlowCounter[Constants.CONSTANT_ARRAY_HIT_COUNTER] = hitCounter;
         hitBlowCounter[Constants.CONSTANT_ARRAY_BLOW_COUNTER] = blowCounter;
         return hitBlowCounter;
+    }
+
+    /**
+     * 名前入力判定メソッド
+     * 入力された名前に不備が無いか確認を行う。
+     */
+    public void nameEntryJudge(){
+        String entryName = NameEntryPanel.textFieldNameInput.getText().trim();
+        //入力された名前を一時格納
+        if(entryName == null){
+            //null判定
+            return;
+        }
+        if(entryName.length() >= 11){
+            //入力された文字が10文字以内か判定
+            return;
+        }
+        if(entryName.length() == 0){
+            //入力された文字が0文字の場合
+            entryName = "NoName";
+        }
+        userName = entryName;
+        TitleScreenPanel.labelUserName.setText(String.format(Constants.DISPLAY_TEXT_USER_NAME, userName));
+        NameEntryPanel.labelNameEntry.setText(String.format(Constants.DISPLAY_TEXT_NAME_ENTRY, userName));
+        NameEntryPanel.textFieldNameInput.setText("");
     }
 
     /**

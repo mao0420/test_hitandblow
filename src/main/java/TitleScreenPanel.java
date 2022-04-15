@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 
 public class TitleScreenPanel extends JPanel {
 
-    private JLabel labelUserName;
+    static JLabel labelUserName;
     private final JButton buttonNameEntry;
     private final JLabel labelTitle;
     private final JButton buttonGameStart;
@@ -20,7 +20,7 @@ public class TitleScreenPanel extends JPanel {
      */
     public TitleScreenPanel(ActionListener actionListener) {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        labelUserName = new JLabel (Contents.userName);
+        labelUserName = new JLabel(String.format(Constants.DISPLAY_TEXT_USER_NAME, Contents.userName));
         buttonNameEntry = new JButton(Constants.DISPLAY_BUTTON_NAME_ENTRY);
         labelTitle = new JLabel(Constants.DISPLAY_TEXT_TITLE);
         buttonGameStart = new JButton(Constants.DISPLAY_BUTTON_GAME_START);

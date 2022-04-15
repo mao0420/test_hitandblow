@@ -14,6 +14,8 @@ public class Constants {
     public static final String DISPLAY_TEXT_DISPLAY_NUMBER = "%s";
     public static final String DISPLAY_TEXT_DISPLAY_NUMBER_NOT_INPUT = "-";
     public static final String DISPLAY_TEXT_DISPLAY_HISTORY_NOT_INPUT = "-:-:-";
+    public static final String DISPLAY_BUTTON_NAME_ENTRY_RESET = "NameEntryリセット";
+    public static final String DISPLAY_BUTTON_NAME_ENTRY_CONFIRM = "NameEntry確定";
     public static final String DISPLAY_BUTTON_ONE = "1";
     public static final String DISPLAY_BUTTON_TWO = "2";
     public static final String DISPLAY_BUTTON_THREE = "3";
@@ -57,6 +59,7 @@ public class Constants {
     public static final int CONSTANT_HIT_ANSWER_NUMBER = 3;
     public static final int CONSTANT_GAME_OVER_LIMIT = 10;
     public static final int CONSTANT_TRY_TIMES_COUNT_FORMAT = 0;
+    public static final String DISPLAY_TEXT_USER_NAME = "現在の名前：%s";
     public static final String DISPLAY_TEXT_RULE_DESCRIPTION = """
             <html>ヒット&ブローはプログラム側がランダムで設定した数字を当てるゲームです。<br>
             <br>
