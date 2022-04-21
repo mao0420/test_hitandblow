@@ -1,3 +1,5 @@
+package com.example.demo;
+
 import org.assertj.swing.edt.GuiActionRunner;
 import org.assertj.swing.fixture.FrameFixture;
 import org.junit.Rule;

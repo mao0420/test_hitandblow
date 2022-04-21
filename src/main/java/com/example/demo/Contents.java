@@ -1,13 +1,17 @@
-import org.springframework.stereotype.Controller;
+package com.example.demo;
+
+import com.example.demo.model.Data;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
 
-@Controller
 public class Contents extends JFrame implements ActionListener {
     JPanel cardPanel;
     CardLayout layout;
@@ -153,10 +157,9 @@ public class Contents extends JFrame implements ActionListener {
 //            }
             layout.show(cardPanel, Constants.CARD_RANKING);
 //            MainController controller = new MainController(new DataRepository(new JdbcTemplate()));
-            MainController controller = new MainController();
-
-            List<DataDto> setRankingList = controller.write1();
-            RankingPanel.labelRanking.setText(String.valueOf(setRankingList));
+            JdbcTemplateSelect selectData = new JdbcTemplateSelect(new JdbcTemplate());
+            String rankingList = selectData.selectAllData();
+            RankingPanel.labelRanking.setText(String.valueOf(rankingList));
         } else if (cmd.matches("^Card.*")) {
             //その他画面遷移用ボタンクリック時
             layout.show(cardPanel, cmd);

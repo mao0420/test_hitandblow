@@ -1,3 +1,5 @@
+package com.example.demo;
+
 public class Constants {
     public static final String DISPLAY_NAME_FRAME_TITLE = "Hit & Blow";
     public static final String DISPLAY_TEXT_TITLE = "Hit & Blow";
